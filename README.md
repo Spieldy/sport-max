@@ -1,4 +1,4 @@
 # sport-max
 
 
-The maximum of sport
+The maximum of sport.
