@@ -1,13 +1,5 @@
 <?php
 
-/**
- * \file      models/user.php
- * \author    Jordan Lang
- * \version   1.0
- * \date      25 octobre 2014
- * \brief     Modèle d'utilisateur
- */
-
 require_once 'base.php';
 
 class User extends Model_Base
@@ -24,7 +16,7 @@ class User extends Model_Base
 		$this->set_id($id);
 		$this->set_login($login);
 		$this->set_password($password);
-		$this->set_email($state);
+		$this->set_state($state);
 	}
 
 
@@ -59,17 +51,12 @@ class User extends Model_Base
 		$this->_password = strval($v);
 	}
 
-	public function set_email($v) {
+	public function set_state($v) {
 		$this->_state = strval($v);
 	}
 
 
-	/**
- 	 * \brief       Insert un utilisateur dans la base user
- 	 * \param       login      login choisi par l'utilisateur
- 	 * \param       password   password choisi par l'utilisateur
- 	 * \param       state      état de l'utilisateur
- 	 */
+
 	public static function insert($login,$password,$state)
 	{
 		$q = self::$_db->prepare('INSERT INTO user (login, password, state) VALUES (:login,:password, :state)');
@@ -79,9 +66,7 @@ class User extends Model_Base
 		$q->execute();
 	}
 
-	/**
- 	 * \brief       Met à jour l'utilisateur concerné
- 	 */
+
 	public function save()
 	{
 		if(!is_null($this->_id)) {
@@ -95,9 +80,7 @@ class User extends Model_Base
 		}
 	}
 
-	/**
- 	 * \brief       Supprime l'utilisateur concerné
- 	 */
+
 	public function delete()
 	{
 		if(!is_null($this->_id)) {
@@ -108,10 +91,7 @@ class User extends Model_Base
 		}
 	}
 
-	/**
- 	 * \param       login     login de l'utilisateur
- 	 * \return 	    L'utilisateur qui correspond au login
- 	 */
+
 	public static function get_by_login($login) {
 		// !!! attention au nom de la table !!!
 		$s = self::$_db->prepare('SELECT * FROM user where login = :l');
@@ -126,10 +106,7 @@ class User extends Model_Base
 		}
 	}
 
-	/**
- 	 * \param       id      id de l'utilisateur
- 	 * \return 	    L'utilisateur qui correspond à l'id
- 	 */
+
 	public static function get_by_id($id) {
 		$s = self::$_db->prepare('SELECT * FROM user where id = :id');
 		$s->bindValue(':id', $id, PDO::PARAM_INT);
@@ -143,11 +120,7 @@ class User extends Model_Base
 		}
 	}
 
-	/**
- 	 * \brief       Teste l'existence de l'utilisateur
- 	 * \param       login      login de l'utilisateur
- 	 * \return 	    Un booleen, si l'utilisateur existe ou non
- 	 */
+
 	public static function exist_login($login) {
 		$test = false;
 		$s = self::$_db->prepare('SELECT * FROM user where login = :l');

@@ -1,14 +1,18 @@
 <?php
 
+ session_start();
+
   require_once 'config.php';
   require_once 'global/utils.php';
   require_once 'models/base.php';
+  require_once 'models/user.php';
+
+
 
   $db = new PDO(SQL_DSN, SQL_USERNAME, SQL_PASSWORD);
   Model_Base::set_db($db);
 
-  session_set_cookie_params(6000, '/', '', false, true);
-  session_start();
+ 
 
   date_default_timezone_set('Europe/Paris');
 
@@ -58,18 +62,20 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Hello, world!</title>
+    <title>Sport-Max</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script> var baseurl = '<?=BASEURL?>'; </script>
   </head>
   <body>
   	<?php 
   		include 'views/navbar.php';
+      if (user_connected()) {
+        $user = User::get_by_login($_SESSION['user']);
+      }
   	?>
     <div class="container">
     	<?php 
@@ -78,6 +84,7 @@
     </div>
 
     <!-- Optional JavaScript -->
+    <script> var baseurl = '<?=BASEURL?>'; </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

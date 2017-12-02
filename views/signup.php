@@ -1,23 +1,4 @@
-<?php
-/**
-* \file      views/signup.php
-* \author    Jérémy Spieldenner
-* \version   2.0
-* \date      20 Octobre 2014
-*  \brief    Affiche le formulaire d'inscription
-*
-* \details   La vue permet à l'utilisateur de s'inscrire en lui demandant de renseigner un login et un mot de passe qui est revérifié. Il y un lien vers la page de connexion si l'utilisateur est deja inscrit.
-*/
-?>
-
-<div class="top-bar">
-	<p> S'inscrire </p>
-</div>
-
-
-
-<div class="signup">
-
+<!-- <div class="signup">
 	<div class="signup-card">
 		<form method="post" action="<?=BASEURL?>/index.php/user/signup">
 
@@ -36,4 +17,28 @@
 		</form>
 		<a href="<?=BASEURL?>/index.php/user/signin">Déjà membre?</a>
 	</div>
+</div> -->
+
+
+<div class="row">
+	<div class="col"></div>
+
+	
+	<div class="col-md-3">
+		<form class="form-signin" method="post" action="<?=BASEURL?>/index.php/user/signup" id="signup-form">
+			<h2 class="form-signin-heading">Create an account</h2>
+			<label for="inputLogin" class="sr-only">Login</label>
+			<input type="text" id="login" name="login" class="form-control" placeholder="Login" name="login" required="" autofocus="">
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+			<label for="inputPassword" class="sr-only">Confirm password</label>
+			<input type="password" id="password_check" name="password_check" class="form-control" placeholder="Confirm password" required="">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+
+			<a href="<?=BASEURL?>/index.php/user/signin">Already an account</a>
+		</form>
+	</div>
+
+
+	<div class="col"></div>
 </div>

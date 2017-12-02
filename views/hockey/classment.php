@@ -1,5 +1,5 @@
 <div class="row">
-	<h1>West Conference</h1>
+	<h3>West Conference</h3>
 	<table class="table table-hover">
 	  <thead>
 	    <tr>
@@ -54,7 +54,7 @@
 	    </tr>
           <tr>
 	      <th scope="row">6</th>
-	      <td>Islanders de NY</td>
+	      <td>Islanders of NY</td>
 	      <td>20</td>
 	      <td>11</td>
           <td>7</td>
@@ -94,7 +94,7 @@
 	    </tr>
           <tr>
 	      <th scope="row">11</th>
-	      <td>Rangers de NY</td>
+	      <td>Rangers of NY</td>
 	      <td>21</td>
 	      <td>10</td>
           <td>9</td>
@@ -145,7 +145,7 @@
 </div>
 
 <div class="row">
-	<h1>East Conference</h1>
+	<h3>East Conference</h3>
 	<table class="table table-hover">
 	  <thead>
 	    <tr>

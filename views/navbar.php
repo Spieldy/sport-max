@@ -6,13 +6,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="<?=BASEURL?>index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-    	<a class="nav-link dropdown-toggle" href="<?=BASEURL?>index.php/hockey/home" id="nhlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        NHL
-     	</a>
+        	<a class="nav-link dropdown-toggle" href="<?=BASEURL?>index.php/hockey/home" id="nhlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            NHL
+         	</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/calendar">Calendar</a>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/results">Results</a>
@@ -59,4 +59,8 @@
         </li>
       </ul>
     </div>
+    <?php if (user_connected()) {
+      var_dump($user->login()) ?>
+      <div class="text-white"><?php echo $user->login(); ?></div>
+    <?php } ?>
   </nav>
