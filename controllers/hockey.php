@@ -16,9 +16,9 @@ class Controller_Hockey
 		include 'views/hockey/results.php';
 	}
 
-	public function classment() {
+	public function standing() {
 		include 'views/hockey/title.php';
-		include 'views/hockey/classment.php';
+		include 'views/hockey/standing.php';
 	}
 
 	public function teams() {

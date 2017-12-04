@@ -16,9 +16,9 @@ class Controller_Soccer
 		include 'views/soccer/results.php';
 	}
 
-	public function classment() {
+	public function standing() {
 		include 'views/soccer/title.php';
-		include 'views/soccer/classment.php';
+		include 'views/soccer/standing.php';
 	}
 
 	public function teams() {

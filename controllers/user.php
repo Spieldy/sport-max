@@ -2,6 +2,7 @@
 
 
 require_once 'models/user.php';
+require_once 'global/utils.php';
 
 
 class Controller_User
@@ -87,6 +88,30 @@ class Controller_User
 						include 'views/signup.php';
 				}
 				break;
+		}
+	}
+
+	public function show_state() {
+		if (user_connected()) {
+			include 'views/state_form.php';
+		}
+	}
+
+	public function change_state() {
+		switch ($_SERVER['REQUEST_METHOD']) {
+			case 'POST':
+				if (user_connected()) {
+					$string_state = "";
+					$string_state = $_POST["sport_state"].$_POST["display_state"];
+					$user = User::get_by_login($_SESSION['user']);
+					$user->set_state($string_state);
+					$user->save();
+					include 'views/home.php';
+				} else {
+					include 'views/signin.php';
+				}
+				break;
+
 		}
 	}
 

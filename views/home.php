@@ -3,6 +3,7 @@
 if (user_connected()) {
 	$user = User::get_by_login($_SESSION['user']);
 	if ($user->state() != NULL) {
+		$state = $user->state();
 		include "views/custom_home.php";
 	} else {  
 		include "views/state_form.php";

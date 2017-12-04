@@ -16,9 +16,9 @@ class Controller_Basketball
     include 'views/basketball/results.php';
   }
 
-  public function classment() {
+  public function standing() {
     include 'views/basketball/title.php';
-    include 'views/basketball/classment.php';
+    include 'views/basketball/standing.php';
   }
 
   public function teams() {

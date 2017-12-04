@@ -16,7 +16,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/calendar">Calendar</a>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/results">Results</a>
-            <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/classment">Classment</a>
+            <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/standing">Standing</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/hockey/teams">Teams</a>
           </div>
@@ -28,7 +28,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?=BASEURL?>index.php/soccer/calendar">Calendar</a>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/soccer/results">Results</a>
-            <a class="dropdown-item" href="<?=BASEURL?>index.php/soccer/classment">Classment</a>
+            <a class="dropdown-item" href="<?=BASEURL?>index.php/soccer/standing">Standing</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/soccer/teams">Teams</a>
           </div>
@@ -40,7 +40,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?=BASEURL?>index.php/football/calendar">Calendar</a>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/football/results">Results</a>
-            <a class="dropdown-item" href="<?=BASEURL?>index.php/football/classment">Classment</a>
+            <a class="dropdown-item" href="<?=BASEURL?>index.php/football/standing">Standing</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/football/teams">Teams</a>
           </div>
@@ -52,15 +52,16 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?=BASEURL?>index.php/basketball/calendar">Calendar</a>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/basketball/results">Results</a>
-            <a class="dropdown-item" href="<?=BASEURL?>index.php/basketball/classment">Classment</a>
+            <a class="dropdown-item" href="<?=BASEURL?>index.php/basketball/standing">Standing</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?=BASEURL?>index.php/basketball/teams">Teams</a>
           </div>
         </li>
       </ul>
     </div>
-    <?php if (user_connected()) {
-      var_dump($user->login()) ?>
-      <div class="text-white"><?php echo $user->login(); ?></div>
+    <?php if (user_connected()) { ?>
+      <div class="text-white"><?php echo $_SESSION['user']; ?></div>
+      <a href="<?=BASEURL?>index.php/user/show_state">settings</a>
+      <a href="<?=BASEURL?>index.php/user/signout">signout</a>
     <?php } ?>
   </nav>
